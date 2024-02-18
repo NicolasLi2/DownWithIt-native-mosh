@@ -13,30 +13,22 @@ import {
   Alert,
   Platform,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 
 export default function App() {
-  // console.log(require('./assets/favicon.png'));
+  console.log(Dimensions.get('screen'));
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* <SafeAreaView style={[styles.container, containerStyle]}> */}
-      {/*  <SafeAreaView style={containerStyle}> */}
-      <Button
-        color='orange'
-        title='Click me'
-        // onPress={() => alert('Button Clicked!')}
-
-        // onPress={() =>
-        //   Alert.alert('My title', 'My message', [
-        //     { text: 'Yes', onPress: () => console.log('Yes') },
-        //     { text: 'No', onPress: () => console.log('No') },
-        //   ])
-        // }
-
-        onPress={() =>
-          Alert.prompt('My title', 'My message', (text) => console.log(text))
-        }
-      />
+      <View
+        style={{
+          backgroundColor: 'dodgerblue',
+          // width: 150,
+          width: '50%',
+          height: 70,
+        }}
+      ></View>
     </SafeAreaView>
   );
 }
