@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,13 +11,15 @@ import {
   TouchableNativeFeedback,
   Button,
   Alert,
+  Platform,
+  StatusBar,
 } from 'react-native';
 
 export default function App() {
   // console.log(require('./assets/favicon.png'));
   return (
-    // <SafeAreaView style={styles.container}>
-    <SafeAreaView style={[styles.container, containerStyle]}>
+    <SafeAreaView style={styles.container}>
+      {/* <SafeAreaView style={[styles.container, containerStyle]}> */}
       {/*  <SafeAreaView style={containerStyle}> */}
       <Button
         color='orange'
@@ -46,7 +48,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
