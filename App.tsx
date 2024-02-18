@@ -1,5 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableHighlight,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+} from 'react-native';
 
 export default function App() {
   // console.log(require('./assets/favicon.png'));
@@ -7,15 +17,23 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Text>Hello</Text>
       {/* <Image source={require('./assets/splash.png')} /> */}
-      <Image
-        blurRadius={10}
-        fadeDuration={1000}
-        source={{
-          width: 200,
-          height: 300,
-          uri: 'https://picsum.photos/200/300',
-        }}
-      />
+      {/* <TouchableWithoutFeedback onPress={() => console.log('image')}> */}
+      {/* <TouchableOpacity onPress={() => console.log('image')}> */}
+      {/* <TouchableHighlight onPress={() => console.log('image')}> */}
+      <TouchableNativeFeedback onPress={() => console.log('image')}>
+        {/* <Image
+          blurRadius={10}
+          fadeDuration={1000}
+          source={{
+            width: 200,
+            height: 300,
+            uri: 'https://picsum.photos/200/300',
+          }}
+        /> */}
+        <View
+          style={{ width: 200, height: 70, backgroundColor: 'orange' }}
+        ></View>
+      </TouchableNativeFeedback>
       <StatusBar style='auto' />
     </SafeAreaView>
   );
