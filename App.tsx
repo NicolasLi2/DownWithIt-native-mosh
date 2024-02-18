@@ -16,7 +16,9 @@ import {
 export default function App() {
   // console.log(require('./assets/favicon.png'));
   return (
-    <SafeAreaView style={styles.container}>
+    // <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, containerStyle]}>
+      {/*  <SafeAreaView style={containerStyle}> */}
       <Button
         color='orange'
         title='Click me'
@@ -37,7 +39,10 @@ export default function App() {
   );
 }
 
+const containerStyle = { backgroundColor: 'orange' };
+
 const styles = StyleSheet.create({
+  // make sure css properties are valid
   container: {
     flex: 1,
     backgroundColor: '#fff',
