@@ -1,20 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
 
 export default function App() {
-  const handlePress = () => {
-    console.log('Text pressed');
-  };
+  console.log(require('./assets/favicon.png'));
   return (
-    <View style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress}>
-        Open up App.tsx to start working on Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Ad, tenetur, sint neque accusantium, rerum
-        nemo ipsam consequuntur facere eveniet in ea earum molestias corrupti
-        accusamus! Asperiores rem corporis officia laborum.
-      </Text>
+    <SafeAreaView style={styles.container}>
+      <Text>Hello</Text>
+      <Image source={require('./assets/splash.png')} />
       <StatusBar style='auto' />
-    </View>
+    </SafeAreaView>
   );
 }
 
