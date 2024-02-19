@@ -15,9 +15,12 @@ import {
   StatusBar,
   Dimensions,
 } from 'react-native';
+import { useDeviceOrientation } from '@react-native-community/hooks';
 
 export default function App() {
-  console.log(Dimensions.get('screen'));
+  // console.log(Dimensions.get('screen'));
+  const orientation = useDeviceOrientation();
+  console.log(orientation);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -26,7 +29,7 @@ export default function App() {
           backgroundColor: 'dodgerblue',
           // width: 150,
           width: '100%',
-          height: '30%',
+          height: orientation === 'landscape' ? '100%' : '30%',
         }}
       ></View>
     </SafeAreaView>
