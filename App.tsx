@@ -30,17 +30,16 @@ export default function App() {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        flexWrap: 'wrap',
-        alignContent: 'center',
       }}
     >
       <View
         style={{
           backgroundColor: 'dodgerblue',
-          // flex: 2,
-          width: 100,
-          height: 300,
-          alignSelf: 'flex-start',
+          flex: -1, // flex is a short hand for flexGrow and flexShrink, when change to flexGrow or flexShrink, you should reload the app, otherwise it won't work
+          width: 400,
+          // flexShrink: 1,  // if this item is overflowing, it will shrink, so other items can fit
+          height: 100,
+          // alignSelf: 'flex-start',
         }}
       />
       <View
@@ -48,7 +47,7 @@ export default function App() {
           backgroundColor: 'gold',
           // flex: 1,
           width: 100,
-          height: 200,
+          height: 100,
         }}
       />
       <View
@@ -59,7 +58,7 @@ export default function App() {
           height: 100,
         }}
       />
-      <View
+      {/* <View
         style={{
           backgroundColor: 'grey',
           // flex: 1,
@@ -74,7 +73,7 @@ export default function App() {
           width: 100,
           height: 100,
         }}
-      />
+      /> */}
     </View>
   );
 }
