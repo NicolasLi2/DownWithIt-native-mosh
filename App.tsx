@@ -23,28 +23,37 @@ export default function App() {
   console.log(orientation);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View
+      style={{
+        backgroundColor: '#fff',
+        flex: 1,
+        // flexDirection: 'row',
+      }}
+    >
       <View
         style={{
           backgroundColor: 'dodgerblue',
-          // width: 150,
-          width: '100%',
-          height: orientation === 'landscape' ? '100%' : '30%',
+          // flex: 2,
+          width: 100,
+          height: 100,
         }}
-      ></View>
-    </SafeAreaView>
+      />
+      <View
+        style={{
+          backgroundColor: 'gold',
+          // flex: 1,
+          width: 100,
+          height: 100,
+        }}
+      />
+      <View
+        style={{
+          backgroundColor: 'tomato',
+          // flex: 1,
+          width: 100,
+          height: 100,
+        }}
+      />
+    </View>
   );
 }
-
-const containerStyle = { backgroundColor: 'orange' };
-
-const styles = StyleSheet.create({
-  // make sure css properties are valid
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
-});
