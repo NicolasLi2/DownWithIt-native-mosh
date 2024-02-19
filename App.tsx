@@ -35,8 +35,8 @@ export default function App() {
       <View
         style={{
           backgroundColor: 'dodgerblue',
-          flex: -1, // flex is a short hand for flexGrow and flexShrink, when change to flexGrow or flexShrink, you should reload the app, otherwise it won't work
-          width: 400,
+          // flex: -1, // flex is a short hand for flexGrow and flexShrink, when change to flexGrow or flexShrink, you should reload the app, otherwise it won't work
+          width: 100,
           // flexShrink: 1,  // if this item is overflowing, it will shrink, so other items can fit
           height: 100,
           // alignSelf: 'flex-start',
@@ -48,6 +48,11 @@ export default function App() {
           // flex: 1,
           width: 100,
           height: 100,
+          top: 20,
+          left: 20,
+          // top: 90,
+          // right: 0,
+          position: 'absolute',
         }}
       />
       <View
