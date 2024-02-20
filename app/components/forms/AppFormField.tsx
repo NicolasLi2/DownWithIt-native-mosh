@@ -6,6 +6,9 @@ import ErrorMessage from './ErrorMessage';
 interface FormData {
   email: string;
   password: string;
+  price: string;
+  title: string;
+  description: string;
 }
 
 interface AppFormFieldProps {
