@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import defaultStyles from '../config/styles';
 
 interface AppTextProps {
-  children: string;
+  children: React.ReactNode;
   style?: object;
 }
 
