@@ -8,7 +8,12 @@ interface ScreenProps {
 }
 
 export default function Screen({ children, style }: ScreenProps) {
-  return <SafeAreaView style={[styles.screen, style]}>{children}</SafeAreaView>;
+  return (
+    <SafeAreaView style={[styles.screen]}>
+      {/* add padding to ios in ListingsScreen  */}
+      <View style={style}>{children}</View>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
