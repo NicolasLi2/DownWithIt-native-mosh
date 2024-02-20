@@ -9,5 +9,7 @@ export default function Screen({ children }: PropsWithChildren) {
 const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight,
+    // backgroundColor: 'yellow',
+    flex: 1,
   },
 });
