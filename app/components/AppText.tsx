@@ -1,5 +1,6 @@
 import { Text } from 'react-native';
-import { styles } from './styles';
+
+import defaultStyles from '../config/styles';
 
 interface AppTextProps {
   children: string;
@@ -7,5 +8,5 @@ interface AppTextProps {
 }
 
 export default function AppText({ children, style }: AppTextProps) {
-  return <Text style={[styles.text, style]}>{children}</Text>;
+  return <Text style={[defaultStyles.text, style]}>{children}</Text>;
 }
