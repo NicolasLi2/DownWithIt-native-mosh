@@ -1,30 +1,37 @@
-import { Image, StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
 
 import Screen from '../components/Screen';
 import { Form, FormField, SubmitButton } from '../components/forms';
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label('Name'),
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(4).label('Password'),
 });
 
-export default function LoginScreen() {
+function RegisterScreen() {
   return (
     <Screen style={styles.container}>
-      <Image style={styles.logo} source={require('../assets/logo-red.png')} />
       <Form
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ name: '', email: '', password: '' }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
         <FormField
+          autoCorrect={false}
+          icon='account'
+          name='name'
+          placeholder='Name'
+        />
+        <FormField
           autoCapitalize='none'
           autoCorrect={false}
-          keyboardType='email-address'
-          placeholder='Email'
           icon='email'
+          keyboardType='email-address'
           name='email'
+          placeholder='Email'
           textContentType='emailAddress'
         />
         <FormField
@@ -33,10 +40,10 @@ export default function LoginScreen() {
           icon='lock'
           name='password'
           placeholder='Password'
-          textContentType='password'
           secureTextEntry
+          textContentType='password'
         />
-        <SubmitButton title='Login' />
+        <SubmitButton title='Register' />
       </Form>
     </Screen>
   );
@@ -46,11 +53,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
-  logo: {
-    width: 80,
-    height: 80,
-    alignSelf: 'center',
-    marginTop: 50,
-    marginBottom: 20,
-  },
 });
+
+export default RegisterScreen;

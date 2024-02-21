@@ -9,6 +9,7 @@ interface FormData {
   price: string;
   title: string;
   description: string;
+  name: string;
 }
 
 interface AppFormFieldProps {
