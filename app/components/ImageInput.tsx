@@ -6,7 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { useEffect } from 'react';
 
 interface ImageInputProps {
-  imageUri: string;
+  imageUri?: string;
   onChangeImage: (uri: string) => void;
 }
 
