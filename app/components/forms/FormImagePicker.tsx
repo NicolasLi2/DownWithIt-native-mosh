@@ -4,11 +4,11 @@ import ImageInputList from '../ImageInputList';
 import ErrorMessage from './ErrorMessage';
 
 interface FormData {
-  [key: string]: string[];
+  images: string[];
 }
 
 interface FormImagePickerProps {
-  name: string;
+  name: keyof FormData;
 }
 
 export default function FormImagePicker({ name }: FormImagePickerProps) {
@@ -35,7 +35,7 @@ export default function FormImagePicker({ name }: FormImagePickerProps) {
         onAddImage={handleAdd}
         onRemoveImage={handleRemove}
       />
-      <ErrorMessage error={errors[name]?.[0]} visible={touched[name]} />
+      <ErrorMessage error={errors[name] as string} visible={touched[name]} />
     </>
   );
 }
