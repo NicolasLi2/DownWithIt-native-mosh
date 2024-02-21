@@ -9,6 +9,7 @@ import MessagesScreen from './app/screens/MessagesScreen';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
 import { Button, Image } from 'react-native';
+import ImageInput from './app/components/ImageInput';
 
 export default function App() {
   const [imageUri, setImageUri] = useState('');
@@ -37,6 +38,7 @@ export default function App() {
         source={imageUri ? { uri: imageUri } : undefined}
         style={{ width: 200, height: 200 }}
       />
+      <ImageInput imageUri={imageUri} />
     </Screen>
   );
 }
