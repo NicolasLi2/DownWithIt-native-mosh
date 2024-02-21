@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import AppPicker from './app/components/AppPicker';
-import AppTextInput from './app/components/AppTextInput';
+import AppPicker from './app/components/Picker';
+import AppTextInput from './app/components/TextInput';
 import Screen from './app/components/Screen';
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';

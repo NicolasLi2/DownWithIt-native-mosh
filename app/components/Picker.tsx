@@ -10,7 +10,7 @@ import {
 import { useState } from 'react';
 
 import defaultStyles from '../config/styles';
-import AppText from './AppText';
+import AppText from './Text';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
 
