@@ -5,6 +5,7 @@ import { Form, FormField, FormPicker, SubmitButton } from '../components/forms';
 import Screen from '../components/Screen';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import FormImagePicker from '../components/forms/FormImagePicker';
+import { useLocation } from '../hooks/useLocation';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -72,6 +73,7 @@ const categories = [
 ];
 
 export default function ListingEditScreen() {
+  const location = useLocation();
   return (
     <Screen style={styles.container}>
       <Form
@@ -82,7 +84,7 @@ export default function ListingEditScreen() {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name='images' />
