@@ -11,12 +11,14 @@ interface AppFormPickerProps {
   items: any[];
   name: keyof FormData;
   placeholder: string;
+  width?: string;
 }
 
 export default function AppFormPicker({
   items,
   name,
   placeholder,
+  width,
 }: AppFormPickerProps) {
   const { errors, setFieldValue, touched, values } =
     useFormikContext<FormData>();
@@ -28,6 +30,7 @@ export default function AppFormPicker({
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
         selectedItem={values[name]}
+        width={width}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>

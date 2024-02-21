@@ -11,7 +11,7 @@ export default function Screen({ children, style }: ScreenProps) {
   return (
     <SafeAreaView style={[styles.screen]}>
       {/* add padding to ios in ListingsScreen  */}
-      <View style={style}>{children}</View>
+      <View style={[styles.view, style]}>{children}</View>
     </SafeAreaView>
   );
 }
@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight,
     // backgroundColor: 'yellow',
+    flex: 1,
+  },
+  view: {
     flex: 1,
   },
 });

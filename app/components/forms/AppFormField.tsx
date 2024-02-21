@@ -18,6 +18,7 @@ interface AppFormFieldProps {
 
 export default function AppFormField({
   name,
+  width,
   ...otherProps
 }: AppFormFieldProps) {
   const { setFieldTouched, handleChange, errors, touched } =
@@ -27,6 +28,7 @@ export default function AppFormField({
       <AppTextInput
         onBlur={() => setFieldTouched(name)}
         onChangeText={handleChange(name)}
+        width={width}
         {...otherProps}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
