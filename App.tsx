@@ -12,11 +12,23 @@ import { Button, Image, Text } from 'react-native';
 import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-const Tweets = () => (
+const Link = () => {
+  const navigation = useNavigation();
+  return (
+    <Button title='Click' onPress={() => navigation.navigate('TweetDetails')} />
+  );
+};
+
+const Tweets = ({ navigation }) => (
   <Screen>
     <Text>Tweets</Text>
+    {/* <Button
+      title='View Tweet'
+      onPress={() => navigation.navigate('TweetDetails')}
+    /> */}
+    <Link />
   </Screen>
 );
 
