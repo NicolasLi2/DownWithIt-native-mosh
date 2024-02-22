@@ -1,10 +1,12 @@
-import { FlatList, StyleSheet } from 'react-native';
+import { ActivityIndicator, Button, FlatList, StyleSheet } from 'react-native';
 import Screen from '../components/Screen';
 import Card from '../components/Card';
 import colors from '../config/colors';
 import routes from '../navigation/routes';
 import listingsApi from '../api/listings';
 import { useEffect, useState } from 'react';
+import AppText from '../components/Text';
+import AppButton from '../components/Button';
 
 type Listing = {
   id: number;
@@ -15,6 +17,8 @@ type Listing = {
 
 export default function ListingsScreen({ navigation }: any) {
   const [listings, setListings] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadListings();
@@ -22,14 +26,26 @@ export default function ListingsScreen({ navigation }: any) {
   }, []);
 
   const loadListings = async () => {
+    setLoading(true);
     const response = await listingsApi.getListings();
-    // console.log(response);
+    setLoading(false);
+
+    if (!response.ok) return setError(true);
+
+    setError(false);
     // @ts-ignore
     setListings(response.data);
   };
 
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <>
+          <AppText>Couldn't retrieve the listings.</AppText>
+          <AppButton title='Retry' onPress={loadListings} />
+        </>
+      )}
+      <ActivityIndicator animating={true} size={'large'} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
