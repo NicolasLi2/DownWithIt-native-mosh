@@ -1,4 +1,5 @@
-import { ActivityIndicator, Button, FlatList, StyleSheet } from 'react-native';
+import { Button, FlatList, StyleSheet } from 'react-native';
+import ActivityIndicator from '../components/ActivityIndicator';
 import Screen from '../components/Screen';
 import Card from '../components/Card';
 import colors from '../config/colors';
@@ -45,7 +46,7 @@ export default function ListingsScreen({ navigation }: any) {
           <AppButton title='Retry' onPress={loadListings} />
         </>
       )}
-      <ActivityIndicator animating={true} size={'large'} />
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
