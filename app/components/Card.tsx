@@ -11,15 +11,20 @@ import AppText from './Text';
 interface CardProps {
   title: string;
   subTitle: string;
-  image: any;
+  imageUrl: string;
   onPress: () => void;
 }
 
-export default function Card({ title, subTitle, image, onPress }: CardProps) {
+export default function Card({
+  title,
+  subTitle,
+  imageUrl,
+  onPress,
+}: CardProps) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{ uri: imageUrl }} />
         <View style={styles.detailsContainer}>
           <AppText style={styles.title}>{title}</AppText>
           <AppText style={styles.subtitle}>{subTitle}</AppText>
