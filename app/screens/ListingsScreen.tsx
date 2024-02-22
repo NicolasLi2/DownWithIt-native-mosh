@@ -8,6 +8,7 @@ import listingsApi from '../api/listings';
 import { useEffect, useState } from 'react';
 import AppText from '../components/Text';
 import AppButton from '../components/Button';
+import useApi from '../hooks/useApi';
 
 type Listing = {
   id: number;
@@ -17,26 +18,17 @@ type Listing = {
 };
 
 export default function ListingsScreen({ navigation }: any) {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApi(listingsApi.getListings);
 
   useEffect(() => {
     loadListings();
     // console.log(listings);
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) return setError(true);
-
-    setError(false);
-    // @ts-ignore
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.screen}>
